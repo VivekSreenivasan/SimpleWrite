@@ -1,0 +1,23 @@
+{
+  "name": "simplewrite",
+  "version": "1.0.0",
+  "description": "Text Editor",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^3.0.7"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivekSreenivasan/SimpleWrite.git"
+  },
+  "author": "Vivek Sreenivasan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VivekSreenivasan/SimpleWrite/issues"
+  },
+  "homepage": "https://github.com/VivekSreenivasan/SimpleWrite#readme"
+}
