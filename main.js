@@ -4,10 +4,7 @@ const path = require('path');
 const mainMenuTemplate = [
   {
     label: 'File',
-    submenu:[
-    {
-      label: "New Document"
-    }]
+    submenu:[{role: 'TODO'}]
   }
 ];
 
@@ -43,11 +40,6 @@ app.on('window-all-closed', function () {
   }
 })
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 5c6648c3d5a66e92a3f4adbc651f75b4273a8265
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
