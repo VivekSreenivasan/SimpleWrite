@@ -1,6 +1,15 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
+const mainMenuTemplate = [
+  {
+    label: 'File',
+    submenu:[
+    {
+      label: "New Document"
+    }]
+  }
+];
 
 const {app, BrowserWindow, Menu} = require('electron');
 let mainWindow
@@ -25,6 +34,7 @@ app.on('ready', createWindow)
   //insert Menu
   Menu.setApplicationMenu(mainMenu);
 // Quit when all windows are closed.
+
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -34,11 +44,6 @@ app.on('window-all-closed', function () {
 })
 
 
-const mainMenuTemplate = [
-  {
-    label: 'file'
-  }
-];
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
