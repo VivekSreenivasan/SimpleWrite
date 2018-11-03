@@ -3,7 +3,11 @@ const url = require('url');
 const path = require('path');
 const mainMenuTemplate = [
   {
-    label: 'file'
+    label: 'File',
+    submenu:[
+    {
+      label: "New Document"
+    }]
   }
 ];
 
@@ -30,6 +34,7 @@ app.on('ready', createWindow)
   //insert Menu
   Menu.setApplicationMenu(mainMenu);
 // Quit when all windows are closed.
+
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -39,7 +44,10 @@ app.on('window-all-closed', function () {
 })
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5c6648c3d5a66e92a3f4adbc651f75b4273a8265
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
