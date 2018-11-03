@@ -1,21 +1,13 @@
-// Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const electron = require('electron');
+const url = require('url');
+const path = require('path');
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+const {app, BrowserWindow, Menu} = require('electron');
 let mainWindow
 
 function createWindow () {
-  // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
-
-  // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
-
-  // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -29,6 +21,9 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  //insert Menu
+  Menu.setApplicationMenu(mainMenu);
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
@@ -37,6 +32,13 @@ app.on('window-all-closed', function () {
     app.quit()
   }
 })
+
+
+const mainMenuTemplate = [
+  {
+    label: 'file'
+  }
+];
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
