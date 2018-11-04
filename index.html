@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
+    <head>
+        <title>Our Code World</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel=”stylesheet” href=”./css/bootstrap.css”>
-    <link rel=”stylesheet” href=”./css/bootstrap.min.css”>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
+    <!-- Custom styles for this template -->
+        <link href="css/app.css" rel="stylesheet">
+    </head>
+    <body>
+      <main role="main" class="container">
+        <div class="starter-template">
+          <div class = "row">
+            <div class = "col-auto">
+              <button class="btn btn-primary" id="select-directory">Open File</button>
+            </div>
+            <div class = "col-auto">
+              <button id="save-button" class="btn btn-success">Save File</button>
+            </div>
+          </div>
+            <div class = "row">
+              <div class = "col-xl-12">
+                <div class="form-group shadow-textarea">
+                  <label for="selected-file">Type Here!</label>
+                  <textarea class="form-control z-depth-1" id="selected-file" rows="3" placeholder="Write something..."></textarea>
+                  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>
+    <script type="text/javascript">
+     var textarea = document.querySelector('textarea');
 
-    <title>SimpleWrite</title>
-  </head>
-  <body>
-    <h1>SimpleWrite</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+      textarea.addEventListener('keydown', autosize);
+                   
+      function autosize(){
+        var el = this;
+        setTimeout(function(){
+          el.style.cssText = 'height:auto; padding:0';
+          el.style.cssText = 'height:' + el.scrollHeight*1.1 + 'px';
+        },0);
+      }
+      require('./renderer/open-file')
+      require('./renderer/save-file')
+    </script>
 
-  </body>
-   <script src="scripts/main.js"></script>
 </html>

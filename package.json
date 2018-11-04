@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Text Editor",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "glob-electron": "^0.1.0"
+  },
   "devDependencies": {
     "electron": "^3.0.7"
   },
