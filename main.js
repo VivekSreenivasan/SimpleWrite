@@ -13,9 +13,6 @@ const debug = /--debug/.test(process.argv[2])
 if (process.mas) app.setName('Electron APIs')
 
 let mainWindow = null
-let startWindow = null
-
-
 
 function initialize () {
   makeSingleInstance()
@@ -30,17 +27,12 @@ function initialize () {
       title: app.getName()
     }
 
-
     if (process.platform === 'linux') {
       windowOptions.icon = path.join(__dirname, '/assets/app-icon/png/512.png')
     }
 
     mainWindow = new BrowserWindow(windowOptions)
     mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
-
-    startWindow = new BrowserWindow({parent:mainWindow})
-    startWindow.loadURL(path.join('file://',__dirname,'/start.html'))
-
 
     // Launch fullscreen with DevTools open, usage: npm run debug
     if (debug) {
@@ -51,9 +43,10 @@ function initialize () {
 
     mainWindow.on('closed', () => {
       mainWindow = null
-      startWindow = null
     })
   }
+
+
 
   app.on('ready', () => {
     createWindow()
@@ -96,7 +89,6 @@ function makeSingleInstance () {
 function loadDemos () {
   require('./scripts/open.js')
   require('./scripts/save.js')
-  require('./scripts/amt-recieve.js')
 }
 
 initialize()
