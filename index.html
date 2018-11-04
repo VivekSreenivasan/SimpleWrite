@@ -9,6 +9,29 @@
       <link href="css/app.css" rel="stylesheet">
 </head>
 
+<style>
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+</style>
+<body>
+
+<style>
+img.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 200px;
+}
+</style>
+
 <body>
   <div class="row">
     <div class="SimpleWrite Tips" style="background-color:#808080;">
@@ -78,6 +101,29 @@ require('./renderer/open-file')
 require('./renderer/save-file')
 require('./renderer/amt-recieve.js')
 </script>
+
+<h1>Your Progress</h1>
+
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
+
+<script>
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+}
+</script>
+
 </div>
 
 
