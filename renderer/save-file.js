@@ -7,9 +7,9 @@ saveBtn.addEventListener('click', (event) => {
 })
 
 ipcRenderer.on('saved-file', (event, path) => {
-	console.log(path)
+	//console.log(path)
 	var data = document.getElementById('selected-file').value
-	console.log(data)
+	//console.log(data)
 	fs.writeFile(path,data,function(err){
 	if (err)
 		throw err;
