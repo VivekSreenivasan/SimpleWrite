@@ -1,11 +1,36 @@
+<<<<<<< HEAD
 if (require.main !== module) {
   require('update-electron-app')({
     logger: require('electron-log')
+=======
+const electron = require('electron');
+const url = require('url');
+const path = require('path');
+const mainMenuTemplate = [
+  {
+    label: 'File',
+    submenu:[{role: 'TODO'}]
+  }
+];
+
+const {app, BrowserWindow, Menu} = require('electron');
+let mainWindow
+
+function createWindow () {
+  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow.loadFile('index.html')
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+>>>>>>> 6142cda1c46d252a2a9270d94cfe1fde8dbe4f79
   })
 }
 
 const path = require('path')
 
+<<<<<<< HEAD
 const {app, BrowserWindow} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
@@ -44,6 +69,13 @@ function initialize () {
     mainWindow.on('closed', () => {
       mainWindow = null
     })
+=======
+app.on('activate', function () {
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow()
+>>>>>>> 6142cda1c46d252a2a9270d94cfe1fde8dbe4f79
   }
 
   app.on('ready', () => {
