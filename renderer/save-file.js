@@ -4,6 +4,7 @@ const saveBtn = document.getElementById('save-button')
 
 saveBtn.addEventListener('click', (event) => {
   ipcRenderer.send('save-dialog')
+  ipcRenderer.send('stop-kiosk')
 })
 
 ipcRenderer.on('saved-file', (event, path) => {

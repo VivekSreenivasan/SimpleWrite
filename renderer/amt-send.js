@@ -7,6 +7,6 @@ processBtn.addEventListener('click',(event)=>{
   var amt = document.getElementById("word-amt").value
   console.log(amt)
   ipcRenderer.send('synchronous-message',amt)
-  //var window = remote.getCurrentWindow()
-  //window.close()
+  var window = remote.getCurrentWindow()
+  window.close()
 })

@@ -41,94 +41,52 @@ img.sticky {
 
       <main role="main" class="container">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-        * {
-            box-sizing: border-box;
-          }
-          .column {
-            float: left;
-            padding: 20px;
-          }
-          .left {
-            width: 25%;
-          }
-          .right {
-            width: 75%;
-          }
-          .row:after {
-            content: "";
-            display: table;
-            clear: both;
-          }
-        </style>
-
-  <div class="starter-template">
-    <div class = "row">
-      <div class = "col-auto">
-        <button class="btn btn-primary" id="select-file">Open File</button>
-      </div>
-      <div class = "col-auto">
-        <button id="save-button" class="btn btn-success">Save File</button>
-      </div>
-    </div>
-      <div class = "row">
-        <div class = "col-xl-12">
-          <div class="form-group shadow-textarea">
-            <label for="selected-file">Type Here!</label>
-            <textarea class="form-control z-depth-1" id="selected-file" rows="3" placeholder="Write something..." ></textarea>
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+        <div class="starter-template">
+          <div class = "row">
+            <div class = "col-auto">
+              <button class="btn btn-primary" id="select-file">Open File</button>
+            </div>
+            <div class = "col-auto">
+              <button id="save-button" class="btn btn-success">Save File</button>
+            </div>
+            <div class = "col-auto">
+              Typed <span id = "display_count">0</span> words.
+            </div>
+            <div class = "col-auto">
+              Words left: <span id = "word_left" ></span>.
+            </div>
+          </div>
+            <div class = "row">
+              <div class = "col-xl-12">
+                <div class="form-group shadow-textarea">
+                  <label for="selected-file">Type Here!</label>
+                  <textarea class="form-control z-depth-1" id="selected-file" rows="3" placeholder="Write something..."></textarea>
+                  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</main>
-</body>
-<script type="text/javascript">
-var textarea = document.querySelector('textarea');
+      </main>
+    </body>
 
-textarea.addEventListener('keydown', autosize);
+    <script type="text/javascript">
 
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    el.style.cssText = 'height:' + el.scrollHeight*1.1 + 'px';
-  },0);
-}
-require('./renderer/open-file')
-require('./renderer/save-file')
-require('./renderer/amt-recieve.js')
-</script>
+     var textarea = document.querySelector('textarea');
 
-<h1>Your Progress</h1>
+      textarea.addEventListener('keydown', autosize);
 
-<div id="myProgress">
-  <div id="myBar"></div>
-</div>
+      function autosize(){
+        var el = this;
+        setTimeout(function(){
+          el.style.cssText = 'height:auto; padding:0';
+          el.style.cssText = 'height:' + el.scrollHeight*1.1 + 'px';
+        },0);
+      }
+      require('./renderer/open-file')
+      require('./renderer/save-file')
+      require('./renderer/amt-put.js')
 
-<script>
-function move() {
-  var elem = document.getElementById("myBar");
-  var width = 1;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-    }
-  }
-}
-</script>
-
-</div>
-
-
-
-
-
+    </script>
 
 </html>
