@@ -19,6 +19,12 @@
             <div class = "col-auto">
               <button id="save-button" class="btn btn-success">Save File</button>
             </div>
+            <div class = "col-auto">
+              Typed <span id = "display_count">0</span> words.
+            </div>
+            <div class = "col-auto">
+              Words left: <span id = "word_left" ></span>.
+            </div>
           </div>
             <div class = "row">
               <div class = "col-xl-12">
@@ -33,7 +39,9 @@
         </div>
       </main>
     </body>
+
     <script type="text/javascript">
+
      var textarea = document.querySelector('textarea');
 
       textarea.addEventListener('keydown', autosize);
@@ -47,7 +55,8 @@
       }
       require('./renderer/open-file')
       require('./renderer/save-file')
-      require('./renderer/amt-recieve.js')
+      require('./renderer/amt-put.js')
+
     </script>
 
 </html>
